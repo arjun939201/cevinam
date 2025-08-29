@@ -1,0 +1,146 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: #121212;
+  color: #ffffff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-size: 16px;
+}
+
+/* Notification Panel */
+.notification-drawer {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  padding: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.notification-drawer .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.notification-drawer .body {
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+/* Home Screen */
+.home-screen {
+  flex: 1;
+  background: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.app-icons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  text-align: center;
+}
+
+.app-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  background-color: #1f1f1f;
+  padding: 12px;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+  transition: transform 0.2s ease;
+}
+
+.app-icon i {
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+.app-icon span {
+  font-size: 12px;
+}
+
+.app-icon:hover {
+  transform: scale(1.05);
+}
+
+/* Bottom Navigation Bar */
+.bottom-bar {
+  background-color: #1e1e1e;
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid #333;
+}
+
+.bottom-bar button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.bottom-bar button:hover {
+  transform: scale(1.2);
+}
+
+/* Side Drawer */
+.drawer {
+  position: fixed;
+  top: 0;
+  left: -240px;
+  width: 240px;
+  height: 100%;
+  background-color: #1e1e1e;
+  padding: 20px;
+  transition: left 0.3s ease-in-out;
+  z-index: 100;
+}
+
+.drawer.open {
+  left: 0;
+}
+
+.drawer nav a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 15px;
+  font-size: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid #333;
+}
+
+.drawer nav a:hover {
+  color: #4caf50;
+}
+
+/* Android Feel */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+/* Responsive */
+@media (max-width: 480px) {
+  .app-icons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
