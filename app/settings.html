@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>సెట్టింగ్స్</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="app-page">
+    <header>
+      <button onclick="goBack()">⬅</button>
+      <span>సెట్టింగ్స్</span>
+    </header>
+
+    <main>
+      <div class="setting-option" onclick="toggleSection('display')">💡 డిస్ప్లే</div>
+      <div id="display" class="setting-details">
+        <label>
+          థీమ్:
+          <select>
+            <option>లైట్</option>
+            <option>డార్క్</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="setting-option" onclick="toggleSection('sound')">🔊 సౌండ్</div>
+      <div id="sound" class="setting-details">
+        <label>
+          వాల్యూమ్:
+          <input type="range" min="0" max="100" value="50">
+        </label>
+      </div>
+
+      <div class="setting-option" onclick="toggleSection('language')">🌐 భాష</div>
+      <div id="language" class="setting-details">
+        <label>
+          భాష:
+          <select>
+            <option selected>తెలుగు</option>
+            <option>English</option>
+            <option>हिंदी</option>
+          </select>
+        </label>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+
+    function toggleSection(id) {
+      const section = document.getElementById(id);
+      section.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
