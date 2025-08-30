@@ -1,20 +1,40 @@
 <!DOCTYPE html>
 <html lang="te">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>మొబైల్ హోమ్</title>
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+  <!-- 📶 Status Bar -->
+  <div class="status-bar">
+    <span id="time">12:00</span>
+    <div class="status-icons">
+      <i class="fas fa-signal"></i>
+      <i class="fas fa-wifi"></i>
+      <i class="fas fa-battery-full"></i>
+    </div>
+  </div>
+
   <!-- 🔔 Notification Panel -->
   <div class="notification-drawer" id="notifDrawer">
-    <div class="header">
-      <span>నోటిఫికేషన్స్</span>
-      <i class="fas fa-chevron-up" id="notifToggle"></i>
+    <div class="header" id="notifToggle">
+      <span>నోటిఫికేషన్స్ & టాగుల్స్</span>
+      <i class="fas fa-chevron-up"></i>
+    </div>
+    <div class="toggles">
+      <button><i class="fas fa-wifi"></i><span>WiFi</span></button>
+      <button><i class="fas fa-bluetooth"></i><span>Bluetooth</span></button>
+      <button><i class="fas fa-battery-half"></i><span>Battery Saver</span></button>
+      <button><i class="fas fa-plane"></i><span>Airplane</span></button>
     </div>
     <div class="body">
       <p>ప్రస్తుతం నోటిఫికేషన్స్ లేవు.</p>
@@ -24,45 +44,41 @@
   <!-- 📱 Home Screen -->
   <div class="home-screen">
     <div class="app-icons">
-      <a href="apps/camera.html" class="app-icon">
-        <i class="fas fa-camera"></i>
-        <span>కెమెరా</span>
-      </a>
-      <a href="apps/mail.html.html" class="app-icon">
-        <i class="fas fa-envelope"></i>
-        <span>మెయిల్</span>
-      </a>
-      <a href="apps/music.html" class="app-icon">
-        <i class="fas fa-music"></i>
-        <span>మ్యూజిక్</span>
-      </a>
-      <a href="apps/map.html" class="app-icon">
-        <i class="fas fa-map"></i>
-        <span>నక్ష</span>
-      </a>
-      <a href="apps/settings.html" class="app-icon">
-        <i class="fas fa-cog"></i>
-        <span>సెట్టింగ్స్</span>
-      </a>
+      <a href="#" class="app-icon"><i class="fas fa-camera"></i><span>కెమెరా</span></a>
+      <a href="#" class="app-icon"><i class="fas fa-envelope"></i><span>మెయిల్</span></a>
+      <a href="#" class="app-icon"><i class="fas fa-music"></i><span>మ్యూజిక్</span></a>
+      <a href="#" class="app-icon"><i class="fas fa-map"></i><span>నక్ష</span></a>
+      <a href="#" class="app-icon"><i class="fas fa-cog"></i><span>సెట్టింగ్స్</span></a>
+      <a href="#" class="app-icon"><i class="fas fa-images"></i><span>గ్యాలరీ</span></a>
+      <a href="#" class="app-icon"><i class="fas fa-book"></i><span>నోట్‌లు</span></a>
+      <a href="#" class="app-icon"><i class="fas fa-shopping-cart"></i><span>స్టోర్</span></a>
     </div>
   </div>
 
-  <!-- 🔽 Bottom Navigation -->
-  <div class="bottom-bar">
-    <button id="menuBtn"><i class="fas fa-bars"></i></button>
-    <button><i class="fas fa-home"></i></button>
-    <button><i class="fas fa-arrow-left"></i></button>
+  <!-- 📂 Dock Bar -->
+  <div class="dock-bar">
+    <button><i class="fas fa-phone"></i></button>
+    <button><i class="fas fa-comment"></i></button>
+    <button id="appDrawerBtn"><i class="fas fa-th"></i></button>
+    <button><i class="fas fa-chrome"></i></button>
+    <button><i class="fas fa-camera"></i></button>
   </div>
 
-  <!-- ☰ Side Drawer Menu -->
-  <aside class="drawer" id="drawerMenu">
-    <nav>
-      <a href="#">హోమ్</a>
-      <a href="settings.html">సెట్టింగ్స్</a>
-      <a href="#">గెలరీ</a>
-      <a href="#">నోట్స్</a>
-    </nav>
-  </aside>
+  <!-- 📂 App Drawer -->
+  <div class="app-drawer" id="appDrawer">
+    <div class="drawer-header">
+      <span>అన్ని యాప్స్</span>
+      <button id="closeDrawer"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="drawer-grid">
+      <a href="#" class="app-icon"><i class="fas fa-gamepad"></i><span>గేమ్స్</span></a>
+      <a href="#" class="app-icon"><i class="fas fa-video"></i><span>వీడియో</span></a>
+      <a href="#" class="app-icon"><i class="fas fa-file-alt"></i><span>ఫైల్‌లు</span></a>
+      <a href="#" class="app-icon"><i class="fas fa-store"></i><span>ప్లే స్టోర్</span></a>
+      <a href="#" class="app-icon"><i class="fas fa-car"></i><span>క్యాబ్</span></a>
+      <a href="#" class="app-icon"><i class="fas fa-cloud"></i><span>క్లౌడ్</span></a>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
