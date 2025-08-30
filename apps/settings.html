@@ -2,38 +2,71 @@
 <html lang="te">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>సెట్టింగ్స్</title>
   <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <div class="app-page">
-    <header>
-      <button onclick="goBack()">⬅</button>
-      <span>సెట్టింగ్స్</span>
+  <div class="app-page settings-page">
+
+    <!-- 🔝 Header Bar -->
+    <header class="app-header">
+      <button class="back-btn" onclick="goBack()">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <span class="title">సెట్టింగ్స్</span>
     </header>
 
-    <main>
-      <div class="setting-option" onclick="toggleSection('display')">💡 డిస్ప్లే</div>
+    <!-- 📑 Settings List -->
+    <main class="settings-list">
+
+      <!-- Display Section -->
+      <div class="setting-option" onclick="toggleSection('display')">
+        <i class="fas fa-lightbulb"></i>
+        <span>డిస్ప్లే</span>
+        <i class="fas fa-chevron-right arrow"></i>
+      </div>
       <div id="display" class="setting-details">
         <label>
           థీమ్:
-          <select>
-            <option>లైట్</option>
-            <option>డార్క్</option>
+          <select id="themeSelect" onchange="changeTheme()">
+            <option value="light">లైట్</option>
+            <option value="dark">డార్క్</option>
           </select>
+        </label>
+        <label>
+          బ్రైట్నెస్:
+          <input type="range" min="0" max="100" value="70">
         </label>
       </div>
 
-      <div class="setting-option" onclick="toggleSection('sound')">🔊 సౌండ్</div>
+      <!-- Sound Section -->
+      <div class="setting-option" onclick="toggleSection('sound')">
+        <i class="fas fa-volume-up"></i>
+        <span>సౌండ్</span>
+        <i class="fas fa-chevron-right arrow"></i>
+      </div>
       <div id="sound" class="setting-details">
         <label>
           వాల్యూమ్:
           <input type="range" min="0" max="100" value="50">
         </label>
+        <label class="switch-label">
+          నోటిఫికేషన్ సౌండ్స్:
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+          </label>
+        </label>
       </div>
 
-      <div class="setting-option" onclick="toggleSection('language')">🌐 భాష</div>
+      <!-- Language Section -->
+      <div class="setting-option" onclick="toggleSection('language')">
+        <i class="fas fa-language"></i>
+        <span>భాష</span>
+        <i class="fas fa-chevron-right arrow"></i>
+      </div>
       <div id="language" class="setting-details">
         <label>
           భాష:
@@ -44,9 +77,22 @@
           </select>
         </label>
       </div>
+
+      <!-- About Section -->
+      <div class="setting-option" onclick="toggleSection('about')">
+        <i class="fas fa-info-circle"></i>
+        <span>గురించి</span>
+        <i class="fas fa-chevron-right arrow"></i>
+      </div>
+      <div id="about" class="setting-details">
+        <p>వెర్షన్: 1.0.0</p>
+        <p>డెవలపర్: Use Throw</p>
+      </div>
+
     </main>
   </div>
 
+  <script src="../script.js"></script>
   <script>
     function goBack() {
       window.history.back();
@@ -55,7 +101,24 @@
     function toggleSection(id) {
       const section = document.getElementById(id);
       section.classList.toggle('open');
+
+      // rotate arrow icon
+      const arrow = section.previousElementSibling.querySelector(".arrow");
+      arrow.classList.toggle("rotate");
     }
+
+    function changeTheme() {
+      const theme = document.getElementById("themeSelect").value;
+      document.body.setAttribute("data-theme", theme);
+      localStorage.setItem("theme", theme);
+    }
+
+    // Load saved theme
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedTheme = localStorage.getItem("theme") || "light";
+      document.body.setAttribute("data-theme", savedTheme);
+      document.getElementById("themeSelect").value = savedTheme;
+    });
   </script>
 </body>
 </html>
